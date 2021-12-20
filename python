@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+import numpy as np
+distinction = 0
+non_distinction = 0
+for student in range(5):
+    
+    marks = input("Enter marks in maths, physics and chemistry out of 100 seperated by comma")
+    marks = marks.split(',')
+    for i in range(len(marks)):
+        marks[i] = int(marks[i])
+    
+    per = (sum(marks)/3)
+    if per > 85:
+        distinction += 1
+    else:
+        non_distinction += 1
+    print("Percentage:",per)
+    
+
+chart_val = np.array([distinction,non_distinction])
+
+chart_label = ["Distinction","Non_Distinction"]
+
+plt.pie(chart_val,labels=chart_label)
+plit.show()
+    

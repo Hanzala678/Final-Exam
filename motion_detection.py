@@ -4,7 +4,7 @@ import http.client as httplib
 import urllib
 
 GPIO.setwarnings(False)
-led = 25
+led = 4
 pir = 2
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pir, GPIO.IN)         #Read output from PIR motion sensor

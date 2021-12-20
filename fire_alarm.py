@@ -8,25 +8,27 @@ class firealarm:
     def __init__(self):
         print("Fire alarm system working")
         key = 'IQ2F3XORLRSR8RY2'
+        fire = 2
+        buzzer = 4
 
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(2,GPIO.IN)
-        GPIO.setup(25,GPIO.OUT)
-        GPIO.output(25,GPIO.LOW)
+        GPIO.setup(fire,GPIO.IN)
+        GPIO.setup(buzzer,GPIO.OUT)
+        GPIO.output(buzzer,GPIO.LOW)
 
         try:
             while True:
-                reading = GPIO.input(2)
+                reading = GPIO.input(fire)
                 if reading:
                     print("fire detected")
                     while True:
                         print("true at gpio 4")
-                        GPIO.output(25,GPIO.HIGH)
+                        GPIO.output(buzzer,GPIO.HIGH)
                         time.sleep(0.25)
-                        GPIO.output(25,GPIO.LOW)
+                        GPIO.output(buzzer,GPIO.LOW)
                         time.sleep(0.25)
-                        if not GPIO.input(2):
+                        if not GPIO.input(fire):
                             break
                 else:
                     print("false at fire alarm")
